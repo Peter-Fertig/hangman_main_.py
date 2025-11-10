@@ -3,12 +3,12 @@
 
 def solve(guess, phrase, secretList):
     x = 0
+    y = 0
     phrasel = len(phrase)
     for i in range(phrasel):
         if secretList[i] == guess:
             phrase[i] = guess
             x += 1
-            y = 0
         else:
             if x >= 1:
                 continue

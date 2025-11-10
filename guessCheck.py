@@ -5,4 +5,4 @@ def check(number):
         print("That letter is not in the phrase")
         return 1
     elif number == 0:
-        pass
+        return 0
