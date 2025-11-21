@@ -6,17 +6,20 @@ def solve(guess, phrase, secretList):
     y = 0
     phrasel = len(phrase)
     for i in range(phrasel):
-        print(secretList[i])
+        #print(secretList[i])
         if secretList[i] == guess:
             phrase[i] = guess
             x += 1
         else:
             if x >= 1:
+                #print("if x >= 1")
                 continue
-            elif phrase[i] != "_" and phrase[i] != " ":
+            #elif phrase[i] != "_" and phrase[i] != " ":
+                print("phrase[i] != _ and phrase[i] != ")
                 continue
             elif i == phrasel - 1:
                 return 1
+    #print("x is:", x)
     return y
 
 #print(solve("O", ["_", "_", "_", "_", "_"],["H", "E", "L", "L", "O"]))
