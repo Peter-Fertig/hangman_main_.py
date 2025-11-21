@@ -4,3 +4,4 @@ def ask():
     guess = guess.upper()
     print("You guessed", guess)
     return guess
+

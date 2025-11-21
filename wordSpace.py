@@ -4,3 +4,6 @@
 def blanks(wordspace):
     wordspace_string = "".join(wordspace)
     return wordspace_string
+
+
+#print(blanks(["_", "E", "_", "_", "_"]))
