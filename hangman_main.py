@@ -1,5 +1,5 @@
 #!bin/python3
-
+import duplicate_check as dC
 import guessList as gL
 import secretWord as sW
 import wordSpace as wS
@@ -8,16 +8,19 @@ import guessCheck as gC
 import numberMuncher as nM
 from solver import solve
 import endGame as eG
-secret = "sail boat"
+secret = "kitty"
 secret = secret.upper()
 
 blank = "_"
 space = " "
 phrase = [blank if character != space else space for character in secret]
-
 while "_" in phrase:
     print(wS.blanks(phrase))
-    letterguess = ATG.ask(gL.usedL())
+    letterguess = ATG.ask()
+    isduplicate = dC.dupcheck(letterguess,gL.oldlist())
+    if isduplicate == True:
+        print("you already guessed this letter!!\n\n Try again")
+        continue
     print("letters guessed so far: ", gL.usedL(letterguess))
     #solve(ATG.ask(), phrase, sW.secret(secret))
     number = solve(letterguess, phrase, sW.secret(secret))
@@ -31,6 +34,3 @@ while "_" in phrase:
 else:
     eG.win(secret)
 
-#####TO FIX####
-#wrong counter counts against you if you guess wrong letter twice
-#in letter guess check for letters already guessed and do not accept non-letters
