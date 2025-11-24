@@ -1,34 +1,28 @@
-import tkinter as tk
 from tkinter import *
-from tkinter import ttk
 
 
 
 
-root = tk.Tk()
+root = Tk()
 root.title("Guess a letter")
 
-mainframe = ttk.Frame(root, padding="3 3 12 12")
-mainframe.grid(column=0, row=0, sticky="nsew")
-root.columnconfigure(0, weight=1)
-root.rowconfigure(0, weight=1)
-secret = "M"
+root.geometry("500x500")
 
-ttk.Label(mainframe, text="Guess a letter").grid(column=2, row=2, sticky="WE")
+#create global switch variable
+global switch
+switch = True
+def change():
+    global switch
+    if switch == True:
+        my_label.config(text="Goodbye WOrld!")
+        switch = False
+    else:
+        my_label.config(text="Hello World!")
+        switch = True
 
-letter = tk.StringVar()
-letter_entry = ttk.Entry(mainframe, width=7, textvariable=letter)
-letter_entry.grid(column=2, row=1, sticky="WE")
-ttk.Label(mainframe, textvariable =letter ).grid(column=4, row=2, sticky="WE")
-
-ttk.Button(mainframe, text="guess", command=  letter).grid(column=3, row=3, sticky="W")
-
-
-for child in mainframe.winfo_children():
-    child.grid_configure(padx=5, pady=5)
-
-
-
-
+my_label = Label(root, text="HelloWorld",font=("Helvetica",35))
+my_label.grid(row=0, column=0)
+my_button = Button(root, text="Click Here", command=change)
+my_button.grid(row=1, column=1)
 
 root.mainloop()
