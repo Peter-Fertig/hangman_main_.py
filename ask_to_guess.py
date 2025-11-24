@@ -5,6 +5,6 @@ from gui_hangman import letter
 def ask(*args):
     try:
         guess = str(letter.get())
-        guess.set
+        #guess.set
     except ValueError:
         pass
