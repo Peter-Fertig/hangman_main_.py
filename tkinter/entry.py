@@ -7,7 +7,7 @@ root.title("Entry Widget")
 root.iconbitmap("images/dakotaphonehq.ico")
 root.geometry("500x350")
 
-def answer(answer):
+def answer():
     pass
 
 
